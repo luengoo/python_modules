@@ -41,7 +41,7 @@ class EliteCard(Card, Combatable, Magical):
         }
         return result['r']
 
-    def deffend(self, incoming_damage: int) -> dict:
+    def defend(self, incoming_damage: int) -> dict:
         result = {
             "r": f"Defense result: {Combatable.deffend(self, incoming_damage)}"
         }

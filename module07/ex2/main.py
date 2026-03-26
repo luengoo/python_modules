@@ -15,10 +15,10 @@ elite = EliteCard("Arcane Warrior", 4, 5, 3, 7, 10)
 print(f"\n{elite.play(game_state)}:\n")
 
 print("Combat phase:")
-print(f"{elite.attack("Enemy")}")
+print(f"{elite.attack('Enemy')}")
 print(f"{elite.deffend(5)}\n")
 print("Magic phase:")
-print(f"{elite.cast_spell("Fireball", ["Enemy1", "Enemy2"])}")
+print(f'{elite.cast_spell("Fireball", ["Enemy1", "Enemy2"])}')
 print(f"{elite.channel_mana(3)}")
 
 print("Multiple interface implementation successful!")

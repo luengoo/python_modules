@@ -14,7 +14,7 @@ class Combatable(ABC):
         return result
 
     @abstractmethod
-    def deffend(self, incoming_damage: int) -> dict:
+    def defend(self, incoming_damage: int) -> dict:
         if self.health - self.damage > 0:
             still_alive = True
         else:
