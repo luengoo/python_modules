@@ -1,9 +1,7 @@
 import sys
 import importlib
 from importlib.metadata import version, PackageNotFoundError
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
+
 
 
 REQUIRED = {
@@ -14,7 +12,7 @@ REQUIRED = {
 
 
 def check_dependencies():
-    print("LOADING STATUS: Loading programs...")
+    print("\nLOADING STATUS: Loading programs...\n")
     print("Checking dependencies:")
 
     missing = []
@@ -38,6 +36,8 @@ def check_dependencies():
 
 
 def generate_matrix_data():
+    import numpy as np
+    import pandas as pd
 
     print("\nAnalyzing Matrix data...")
 
@@ -54,7 +54,7 @@ def generate_matrix_data():
 
 
 def create_visualization(df):
-
+    import matplotlib.pyplot as plt
     print("Generating visualization...")
 
     df.mean().plot(kind="bar", title="Matrix Signal Analysis")
