@@ -3,7 +3,6 @@ import importlib
 from importlib.metadata import version, PackageNotFoundError
 
 
-
 REQUIRED = {
     "pandas": "Data manipulation ready",
     "requests": "Network access ready",
