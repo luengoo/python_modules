@@ -62,7 +62,7 @@ def main():
         valid = AlienContact(**valid_data)
         print("Valid contact report:")
         print(f"ID: {valid.contact_id}")
-        print(f"Type: {valid.contact_type.name}")
+        print(f"Type: {valid.contact_type.value}")
         print(f"Location: {valid.location}")
         print(f"Signal: {valid.signal_strength}/10")
         print(f"Duration: {valid.duration_minutes} minutes")
