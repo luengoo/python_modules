@@ -2,7 +2,8 @@ from typing import Callable
 
 
 def spell_combiner(spell1: Callable, spell2: Callable) -> Callable:
-    return lambda x: spell2(spell1(x))
+    return lambda target, power: spell2(
+        target, power) + ", " + spell1(target, power)
 
 
 def power_amplifier(
@@ -33,10 +34,17 @@ def heal(target: str, power: int) -> str:
 
 
 def fireball(target: str, power: int) -> str:
-    return f"Fireball hits {target}"
+    return f"Fireball hits {target} for {power} HP"
+
 
 def main():
     print("Testing spell combiner...")
+    combined = spell_combiner(fireball, heal)
+    print(f"Combined spell result: {combined('Dragon', 10)}")
+    print("\nTesting power amplifier...")
+    multiplier = 3
+    amplified = power_amplifier(fireball, multiplier)
+    print(f"Original: 10, Amplified: {amplified('Dragon', 10)}")
 
 
 if __name__ == "__main__":
