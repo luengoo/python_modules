@@ -24,7 +24,10 @@ def spell_sequence(spells: list[Callable]) -> Callable:
     def casting(target, power):
         results = []
         for spell in spells:
-            results.append(spell(target, power))
+            if callable(spell):
+                results.append(spell(target, power))
+            else:
+                pass
         return results
     return casting
 
