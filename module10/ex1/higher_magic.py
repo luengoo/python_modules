@@ -13,23 +13,13 @@ def power_amplifier(
 
 
 def conditional_caster(condition: Callable, spell: Callable) -> Callable:
-    def new_spell(target, power):
-        if condition(target, power):
-            return spell(target, power)
-        return "Spell fizzled"
-    return new_spell
+    return lambda target, power: spell(target, power) if condition(target, power) else "Spell fizzled"
 
 
 def spell_sequence(spells: list[Callable]) -> Callable:
-    def casting(target, power):
-        results = []
-        for spell in spells:
-            if callable(spell):
-                results.append(spell(target, power))
-            else:
-                pass
-        return results
-    return casting
+    return lambda target, power: [
+        spell(target, power) for spell in spells if callable(spell)
+    ]
 
 
 def heal(target: str, power: int) -> str:
@@ -41,8 +31,8 @@ def fireball(target: str, power: int) -> str:
 
 
 def main():
-    print("Testing spell combiner...")
-    combined = spell_combiner(fireball, heal)
+    print("\nTesting spell combiner...")
+    combined = spell_combiner(heal, fireball)
     print(f"Combined spell result: {combined('Dragon', 10)}")
     print("\nTesting power amplifier...")
     multiplier = 3
