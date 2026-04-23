@@ -67,6 +67,7 @@ def main():
 
     @spell_timer
     def fireball():
+        time.sleep(0.101)
         return "Fireball cast!"
     fireball_cast = fireball()
     print(f"Result: {fireball_cast}")
