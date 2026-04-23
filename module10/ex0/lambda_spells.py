@@ -37,12 +37,12 @@ def main():
     artifact_sorter(artifacts)
     print(f"{artifacts[0].get('name')} ({artifacts[0].get('power')} power) "
           f"comes before {artifacts[1].get('name')} "
-          f"({artifacts[1].get('power')} power))\n")
+          f"({artifacts[1].get('power')} power)\n")
     print("Testing spell transformer...")
     transformed = spell_transform(spells)
     for x in transformed:
         print(x, end=" ")
-    print("\n")
+    print()
 
 
 if __name__ == "__main__":
