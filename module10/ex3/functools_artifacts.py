@@ -43,7 +43,7 @@ def spell_dispatcher() -> Callable[[Any], str]:
 
     @singledispatch
     def cast(spell: Any):
-        return f"Unknown spell type: {spell}"
+        return f"Unknown spell type"
 
     @cast.register
     def _(spell: int):
@@ -66,7 +66,7 @@ def base_enchantment(power: int, element: str, target: str) -> str:
 
 def main():
     print("\nTesting spell reducer...")
-    spells = [1, 23, 14, 32]
+    spells = [25, 35, 40]
     print(f"Sum: {spell_reducer(spells, 'add')}")
     print(f"Product: {spell_reducer(spells, 'multiply')}")
     print(f"Max: {spell_reducer(spells, 'max')}\n")
